@@ -1,14 +1,16 @@
 "use client";
 
-import Catagory from "./Catagory";
-import { useState } from "react";
+import CatagoryList from "./CatagoryList";
+import { data } from "../../../data1";
 
 const GearList = () => {
-  const [catagoryListItems, setCatagroyListItems] = useState([
-    <Catagory key="0" id="" />,
-  ]);
+  console.log(data);
 
-  return <div className="w-full">{catagoryListItems.map((item) => item)}</div>;
+  return (
+    <div>
+      <CatagoryList name={data.name} id={data.id} data={data.items} />
+    </div>
+  );
 };
 
 export default GearList;

@@ -1,19 +1,17 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import CatagoryItem from "./CatagoryItem";
 import { BsPlus } from "react-icons/bs";
-import { useState } from "react";
 
-const Catagory = () => {
-  const [catagoryListItems, setCatagroyListItems] = useState([
-    <CatagoryItem key="0" />,
-  ]);
+const CatagoryList = ({ name, data, id }) => {
+  const [nameState, setNameState] = useState(name);
 
-  const addCatagroyItem = () => {
-    setCatagroyListItems(
-      catagoryListItems.concat(<CatagoryItem key={catagoryListItems.length} />)
-    );
+  const handleNameChange = (e) => {
+    setNameState(e.target.value);
   };
+
+  useEffect(() => {}, [nameState]);
 
   return (
     <div>
@@ -22,7 +20,9 @@ const Catagory = () => {
           <input
             type="text"
             name="catagoryName"
-            id=""
+            id={id}
+            value={nameState}
+            onChange={handleNameChange}
             placeholder="Catagory Name"
             className="flex-1 outline-0 hover:border hover:border-b-0 active:border active:border-b-0 p-2 mr-8"
           />
@@ -30,14 +30,13 @@ const Catagory = () => {
           <span className="mx-4">Qty</span>
           <button className="hidden">X</button>
         </li>
-
-        {catagoryListItems.map((item) => item)}
+        {/* 
+        {data.map((item, index) => (
+          <CatagoryItem data={item} key={index} />
+        ))} */}
 
         <li>
-          <button
-            className="flex items-center text-sm"
-            onClick={addCatagroyItem}
-          >
+          <button className="flex items-center text-sm mt-2">
             <BsPlus /> Add new Item
           </button>
         </li>
@@ -46,4 +45,4 @@ const Catagory = () => {
   );
 };
 
-export default Catagory;
+export default CatagoryList;
