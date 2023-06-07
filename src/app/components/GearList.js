@@ -1,14 +1,25 @@
 "use client";
 
+import { useSelector } from "react-redux";
 import CatagoryList from "./CatagoryList";
-import { data } from "../../../data1";
 
 const GearList = () => {
-  console.log(data);
+  const gear = useSelector((state) => {
+    return state.gear.gear;
+  });
+
+  console.log(gear);
 
   return (
     <div>
-      <CatagoryList name={data.name} id={data.id} data={data.items} />
+      {gear.map((item) => (
+        <CatagoryList
+          name={item.name}
+          id={item.id}
+          data={item.items}
+          key={item.id}
+        />
+      ))}
     </div>
   );
 };

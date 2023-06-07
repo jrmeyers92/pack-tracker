@@ -1,17 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import CatagoryItem from "./CatagoryItem";
 import { BsPlus } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { updateCatagory } from "../store";
 
 const CatagoryList = ({ name, data, id }) => {
-  const [nameState, setNameState] = useState(name);
+  const dispatch = useDispatch();
 
-  const handleNameChange = (e) => {
-    setNameState(e.target.value);
+  const handleNameChange = (event) => {
+    dispatch(
+      updateCatagory({ catagoryID: event.target.id, name: event.target.value })
+    );
   };
-
-  useEffect(() => {}, [nameState]);
 
   return (
     <div>
@@ -21,7 +22,7 @@ const CatagoryList = ({ name, data, id }) => {
             type="text"
             name="catagoryName"
             id={id}
-            value={nameState}
+            value={name}
             onChange={handleNameChange}
             placeholder="Catagory Name"
             className="flex-1 outline-0 hover:border hover:border-b-0 active:border active:border-b-0 p-2 mr-8"
@@ -30,10 +31,15 @@ const CatagoryList = ({ name, data, id }) => {
           <span className="mx-4">Qty</span>
           <button className="hidden">X</button>
         </li>
-        {/* 
-        {data.map((item, index) => (
-          <CatagoryItem data={item} key={index} />
-        ))} */}
+
+        {data.map((item) => (
+          <CatagoryItem
+            data={item}
+            key={item.id}
+            catagoryID={id}
+            id={item.id}
+          />
+        ))}
 
         <li>
           <button className="flex items-center text-sm mt-2">
