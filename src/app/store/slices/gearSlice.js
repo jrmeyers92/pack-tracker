@@ -11,7 +11,7 @@ const gearSlice = createSlice({
           {
             id: nanoid(),
             name: "backpack",
-            descritption: "my fav backpack",
+            description: "my fav backpack",
             unitOfMeasure: "oz",
             weight: "24",
             qty: 1,
@@ -19,7 +19,7 @@ const gearSlice = createSlice({
           {
             id: nanoid(),
             name: "quilt",
-            descritption: "EE quilt",
+            description: "EE quilt",
             unitOfMeasure: "oz",
             weight: "18",
             qty: 1,
@@ -27,7 +27,7 @@ const gearSlice = createSlice({
           {
             id: nanoid(),
             name: "pad",
-            descritption: "neo air xlite",
+            description: "neo air xlite",
             unitOfMeasure: "oz",
             weight: "14",
             qty: 1,
@@ -45,7 +45,7 @@ const gearSlice = createSlice({
           {
             id: nanoid(),
             name: "",
-            descritption: "",
+            description: "",
             unitOfMeasure: "oz",
             weight: "",
             qty: 1,
@@ -83,7 +83,7 @@ const gearSlice = createSlice({
       state.gear[objIndex].items.push({
         id: nanoid(),
         name: "",
-        descritption: "",
+        description: "",
         unitOfMeasure: "oz",
         weight: "",
         qty: 1,

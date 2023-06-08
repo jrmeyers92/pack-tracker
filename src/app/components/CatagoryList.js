@@ -17,42 +17,42 @@ const CatagoryList = ({ name, data, id }) => {
   };
 
   return (
-    <div className="mb-4 border-b pb-4">
-      <ul className="mx-auto w-full md:w-[85%]">
-        <li className="flex items-center justify-center border-b-2 p-2 pb-0 text-xl">
-          <input
-            type="text"
-            name="catagoryName"
-            id={id}
-            value={name}
-            onChange={handleNameChange}
-            placeholder="Catagory Name"
-            className="flex-1 outline-0 hover:border hover:border-b-0 active:border active:border-b-0 p-2 mr-8"
-          />
-          <span className="mx-4">Weight</span>
-          <span className="mx-4">Qty</span>
-          <button className="hidden">X</button>
-        </li>
+    <table className="border-b mb-4 text-gray-800">
+      <tr>
+        <input
+          type="text"
+          name="catagoryName"
+          id={id}
+          value={name}
+          onChange={handleNameChange}
+          placeholder="Catagory Name"
+          className="flex-1 outline-0 p-2 mr-8 text-2xl hover:ring-1 active:ring-1 ring-gray-200 hover:bg-gray-100 active:gray-100"
+        />
+      </tr>
+      <tr>
+        <th className="text-left pl-2">Item</th>
+        <th className="text-left">description</th>
+        <th className="text-left">Weight</th>
+        <th className="text-left pr-4">Unit of measure</th>
+        <th className="text-left">Qty</th>
+        {/* <th className="border border-black">
+            <button className="hidden">X</button>
+          </th> */}
+      </tr>
 
-        {data.map((item) => (
-          <CatagoryItem
-            data={item}
-            key={item.id}
-            catagoryID={id}
-            id={item.id}
-          />
-        ))}
+      {data.map((item) => (
+        <CatagoryItem data={item} key={item.id} catagoryID={id} id={item.id} />
+      ))}
 
-        <li>
-          <button
-            className="flex items-center text-sm mt-2"
-            onClick={addNewItem}
-          >
-            <BsPlus /> Add new Item
-          </button>
-        </li>
-      </ul>
-    </div>
+      <tr>
+        <button
+          className="flex items-center text-sm mt-2 pb-4 text-gray-600"
+          onClick={addNewItem}
+        >
+          <BsPlus /> Add new Item
+        </button>
+      </tr>
+    </table>
   );
 };
 

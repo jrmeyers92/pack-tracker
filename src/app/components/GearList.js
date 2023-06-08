@@ -31,7 +31,7 @@ const GearList = () => {
       ))}
 
       <button
-        className="flex items-center text-sm mt-2"
+        className="flex items-center text-sm mt-2 text-gray-600"
         onClick={addNewCatagory}
       >
         <BsPlus /> Add new Catagory
