@@ -2,13 +2,22 @@
 
 import { useSelector } from "react-redux";
 import CatagoryList from "./CatagoryList";
+import { BsPlus } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { addCatagory } from "../store";
 
 const GearList = () => {
+  const dispatch = useDispatch();
+
   const gear = useSelector((state) => {
     return state.gear.gear;
   });
 
   console.log(gear);
+
+  const addNewCatagory = () => {
+    dispatch(addCatagory({}));
+  };
 
   return (
     <div>
@@ -20,6 +29,13 @@ const GearList = () => {
           key={item.id}
         />
       ))}
+
+      <button
+        className="flex items-center text-sm mt-2"
+        onClick={addNewCatagory}
+      >
+        <BsPlus /> Add new Catagory
+      </button>
     </div>
   );
 };

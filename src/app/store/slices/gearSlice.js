@@ -6,10 +6,10 @@ const gearSlice = createSlice({
     gear: [
       {
         name: "The Big Four",
-        id: "1",
+        id: nanoid(),
         items: [
           {
-            id: "2",
+            id: nanoid(),
             name: "backpack",
             descritption: "my fav backpack",
             unitOfMeasure: "oz",
@@ -17,7 +17,7 @@ const gearSlice = createSlice({
             qty: 1,
           },
           {
-            id: "3",
+            id: nanoid(),
             name: "quilt",
             descritption: "EE quilt",
             unitOfMeasure: "oz",
@@ -25,7 +25,7 @@ const gearSlice = createSlice({
             qty: 1,
           },
           {
-            id: "4",
+            id: nanoid(),
             name: "pad",
             descritption: "neo air xlite",
             unitOfMeasure: "oz",
@@ -38,10 +38,8 @@ const gearSlice = createSlice({
   },
   reducers: {
     addCatagory(state, action) {
-      // assumption
-      // action.payload === "the big four"
       state.gear.push({
-        name: action.payload,
+        name: "",
         id: nanoid(),
         items: [
           {
@@ -77,21 +75,35 @@ const gearSlice = createSlice({
       // assumption
       // action.payload {
       // catagoryID: randomID
-      // name: "pad",
-      // descritption: "neo air xlite",
-      // unitOfMeasure: "oz",
-      // weight: "14",
-      // qty: 1,
       // }
 
       let objIndex = state.gear.findIndex(
         (obj) => obj.id == action.payload.catagoryID
       );
-
-      delete action.payload.catagoryID;
-      state.gear[objIndex].items.push(action.payload);
+      state.gear[objIndex].items.push({
+        id: nanoid(),
+        name: "",
+        descritption: "",
+        unitOfMeasure: "oz",
+        weight: "",
+        qty: 1,
+      });
     },
-    deleteItem(state, action) {},
+    deleteItem(state, action) {
+      // assumption
+      // {
+      // catagoryID: id
+      // itemID: id
+      // }
+
+      let objIndex = state.gear.findIndex(
+        (catagory) => catagory.id == action.payload.catagoryID
+      );
+
+      state.gear[objIndex].items = state.gear[objIndex].items.filter(
+        (item) => item.id != action.payload.itemID
+      );
+    },
     updateItem(state, action) {
       // assumption
       // action.payload == {

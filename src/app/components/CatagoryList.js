@@ -3,19 +3,21 @@
 import CatagoryItem from "./CatagoryItem";
 import { BsPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { updateCatagory } from "../store";
+import { updateCatagory, addItem } from "../store";
 
 const CatagoryList = ({ name, data, id }) => {
   const dispatch = useDispatch();
 
   const handleNameChange = (event) => {
-    dispatch(
-      updateCatagory({ catagoryID: event.target.id, name: event.target.value })
-    );
+    dispatch(updateCatagory());
+  };
+
+  const addNewItem = (event) => {
+    dispatch(addItem({ catagoryID: id }));
   };
 
   return (
-    <div>
+    <div className="mb-4 border-b pb-4">
       <ul className="mx-auto w-full md:w-[85%]">
         <li className="flex items-center justify-center border-b-2 p-2 pb-0 text-xl">
           <input
@@ -42,7 +44,10 @@ const CatagoryList = ({ name, data, id }) => {
         ))}
 
         <li>
-          <button className="flex items-center text-sm mt-2">
+          <button
+            className="flex items-center text-sm mt-2"
+            onClick={addNewItem}
+          >
             <BsPlus /> Add new Item
           </button>
         </li>

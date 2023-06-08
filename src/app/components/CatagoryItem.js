@@ -1,10 +1,15 @@
-import { updateItem } from "../store";
+import { updateItem, deleteItem } from "../store";
 import { useDispatch } from "react-redux";
 
 const CatagoryItem = ({ data, catagoryID, id }) => {
   const unitsOfMeasure = ["oz", "g", "lb", "kg"];
 
   const dispatch = useDispatch();
+
+  const handleDeleteItem = () => {
+    console.log("ran");
+    dispatch(deleteItem({ catagoryID: catagoryID, itemID: id }));
+  };
 
   const handleNameChange = (event) => {
     dispatch(
@@ -108,6 +113,8 @@ const CatagoryItem = ({ data, catagoryID, id }) => {
         className="ml-2"
         onChange={handleQtyChange}
       />
+
+      <button onClick={handleDeleteItem}>XXX</button>
     </li>
   );
 };
