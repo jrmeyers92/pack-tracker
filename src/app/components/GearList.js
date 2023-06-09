@@ -13,8 +13,6 @@ const GearList = () => {
     return state.gear.gear;
   });
 
-  console.log(gear);
-
   const addNewCatagory = () => {
     dispatch(addCatagory({}));
   };
@@ -31,7 +29,7 @@ const GearList = () => {
       ))}
 
       <button
-        className="flex items-center text-sm mt-2 text-gray-600"
+        className="flex items-center text-sm mt-2 text-gr"
         onClick={addNewCatagory}
       >
         <BsPlus /> Add new Catagory
