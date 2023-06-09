@@ -10,7 +10,6 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    console.log(store);
     setMounted(true);
   }, [store]);
 

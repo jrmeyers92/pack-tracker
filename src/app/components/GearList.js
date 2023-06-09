@@ -17,16 +17,19 @@ const GearList = () => {
     dispatch(addCatagory({}));
   };
 
+  console.log(gear);
+
   return (
     <div>
-      {gear.map((item) => (
-        <CatagoryList
-          name={item.name}
-          id={item.id}
-          data={item.items}
-          key={item.id}
-        />
-      ))}
+      {gear &&
+        gear.map((item) => (
+          <CatagoryList
+            name={item.name}
+            id={item.id}
+            data={item.items}
+            key={item.id}
+          />
+        ))}
 
       <button
         className="flex items-center text-sm mt-2 text-gr"

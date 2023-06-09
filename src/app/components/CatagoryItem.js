@@ -20,7 +20,6 @@ const CatagoryItem = ({ data, catagoryID, id }) => {
         })
       );
     } else {
-      console.log(event.target.name);
       dispatch(
         updateItem({
           catagoryID: catagoryID,

@@ -22,7 +22,6 @@ const CatagoryList = ({ name, data, id }) => {
   };
 
   useEffect(() => {
-    console.log(data);
     let cost = 0;
     let qty = 0;
     let weight = 0;
@@ -43,9 +42,7 @@ const CatagoryList = ({ name, data, id }) => {
         } else if (item.unitOfMeasure == "kg") {
           weight += kgToOz(parseInt(item.weight));
         } else if (item.unitOfMeasure == "lb") {
-          console.log("this ran");
           weight += lbToOz(parseInt(item.weight));
-          console.log(weight);
         } else {
           weight += parseInt(item.weight);
         }

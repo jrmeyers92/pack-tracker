@@ -1,43 +1,32 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { loadState, saveState } from "@/app/utils/localStorage";
+
+let persistedData = loadState();
+
+if (persistedData == undefined) {
+  persistedData = [
+    {
+      name: "The Big Four",
+      id: nanoid(),
+      items: [
+        {
+          id: nanoid(),
+          name: "",
+          description: "",
+          price: 0,
+          unitOfMeasure: "oz",
+          weight: "1",
+          qty: 1,
+        },
+      ],
+    },
+  ];
+}
 
 const gearSlice = createSlice({
   name: "gear",
   initialState: {
-    gear: [
-      {
-        name: "The Big Four",
-        id: nanoid(),
-        items: [
-          {
-            id: nanoid(),
-            name: "backpack",
-            description: "my fav backpack",
-            price: 200,
-            unitOfMeasure: "kg",
-            weight: "1",
-            qty: 1,
-          },
-          {
-            id: nanoid(),
-            name: "quilt",
-            description: "EE quilt",
-            price: 500,
-            unitOfMeasure: "oz",
-            weight: "1",
-            qty: 1,
-          },
-          {
-            id: nanoid(),
-            name: "pad",
-            description: "neo air xlite",
-            price: 150,
-            unitOfMeasure: "oz",
-            weight: "1",
-            qty: 1,
-          },
-        ],
-      },
-    ],
+    gear: persistedData,
   },
   reducers: {
     addCatagory(state, action) {
@@ -56,6 +45,8 @@ const gearSlice = createSlice({
           },
         ],
       });
+
+      saveState(state.gear);
     },
     deleteCatagory(state, action) {
       // assumption
@@ -64,6 +55,7 @@ const gearSlice = createSlice({
         (catagory) => catagory.id !== action.payload
       );
       state.gear = updated;
+      saveState(state.gear);
     },
     updateCatagory(state, action) {
       // assumtion
@@ -74,6 +66,7 @@ const gearSlice = createSlice({
       );
 
       state.gear[objIndex].name = action.payload.name;
+      saveState(state.gear);
     },
     addItem(state, action) {
       // assumption
@@ -93,6 +86,7 @@ const gearSlice = createSlice({
         weight: "",
         qty: 1,
       });
+      saveState(state.gear);
     },
     deleteItem(state, action) {
       // assumption
@@ -108,6 +102,7 @@ const gearSlice = createSlice({
       state.gear[objIndex].items = state.gear[objIndex].items.filter(
         (item) => item.id != action.payload.itemID
       );
+      saveState(state.gear);
     },
     updateItem(state, action) {
       // assumption
@@ -131,6 +126,7 @@ const gearSlice = createSlice({
         state.gear[objIndex].items[itemID],
         action.payload
       );
+      saveState(state.gear);
     },
   },
 });
