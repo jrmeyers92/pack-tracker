@@ -58,7 +58,7 @@ const CatagoryList = ({ name, data, id }) => {
   }, [data]);
 
   return (
-    <table className="border-b mb-4 text-gray-800">
+    <table className="border-b mb-4 text-gray-800 overflow-scroll">
       <thead>
         <tr>
           <td>

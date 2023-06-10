@@ -17,8 +17,6 @@ const GearList = () => {
     dispatch(addCatagory({}));
   };
 
-  console.log(gear);
-
   return (
     <div>
       {gear &&

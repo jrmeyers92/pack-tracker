@@ -16,7 +16,7 @@ export default function Home() {
   return (
     mounted && (
       <Provider store={store}>
-        <main className="flex min-h-screen flex-col items-center p-24">
+        <main className="flex min-h-screen flex-col items-center pt-20">
           <ChartData />
           <GearList />
         </main>
