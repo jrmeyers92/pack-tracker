@@ -2,12 +2,14 @@
 
 import { updateItem, deleteItem } from "../store";
 import { useDispatch } from "react-redux";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
-const CatagoryItem = ({ data, catagoryID, id }) => {
+const CatagoryItem = ({ data, key, catagoryID, id, anotherCatagoryID }) => {
   const dispatch = useDispatch();
+  console.log(catagoryID);
 
-  const handleDeleteItem = () => {
-    dispatch(deleteItem({ catagoryID: catagoryID, itemID: id }));
+  const handleDeleteItem = (catagoryID, itemID) => {
+    dispatch(deleteItem({ catagoryID: anotherCatagoryID, itemID: id }));
   };
 
   const handleInputChange = (event) => {
@@ -31,7 +33,7 @@ const CatagoryItem = ({ data, catagoryID, id }) => {
   };
 
   return (
-    <tr className="odd:bg-slate-100 odd:hover:bg-slate-200 even:hover:bg-zinc-200 duration-200 text-gray-800">
+    <tr className="odd:bg-slate-100 odd:hover:bg-slate-200 even:hover:bg-zinc-200 duration-200 text-gray-800 group">
       <td>
         <input
           className="outline-0 bg-inherit hover:ring-2 hover:ring-inset hover:ring-pink py-1 px-2 pl-2"
@@ -113,7 +115,14 @@ const CatagoryItem = ({ data, catagoryID, id }) => {
           onChange={handleInputChange}
         />
       </td>
-      {/* <button onClick={handleDeleteItem}>XXX</button> */}
+      <td className="pr-2">
+        <button
+          onClick={handleDeleteItem}
+          className="flex items-center justify-center"
+        >
+          <AiOutlineCloseCircle className="text-gray-500 hidden group-hover:block" />
+        </button>
+      </td>
     </tr>
   );
 };

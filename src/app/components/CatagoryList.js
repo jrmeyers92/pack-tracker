@@ -2,8 +2,9 @@
 
 import CatagoryItem from "./CatagoryItem";
 import { BsPlus } from "react-icons/bs";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { updateCatagory, addItem } from "../store";
+import { updateCatagory, addItem, deleteCatagory } from "../store";
 import { useEffect, useState } from "react";
 import { lbToOz, kgToOz, gramToOz } from "../utils/weightConversion";
 
@@ -15,6 +16,10 @@ const CatagoryList = ({ name, data, id }) => {
 
   const handleNameChange = (event) => {
     dispatch(updateCatagory({ catagoryID: id, name: event.target.value }));
+  };
+
+  const handleDeleteCatagory = () => {
+    dispatch(deleteCatagory({ catagoryID: id }));
   };
 
   const addNewItem = (event) => {
@@ -60,8 +65,8 @@ const CatagoryList = ({ name, data, id }) => {
   return (
     <table className="border-b mb-4 text-gray-800 overflow-scroll">
       <thead>
-        <tr>
-          <td>
+        <tr className="group flex">
+          <th>
             <input
               type="text"
               name="catagoryName"
@@ -71,7 +76,15 @@ const CatagoryList = ({ name, data, id }) => {
               placeholder="Catagory Name"
               className="flex-1 outline-0 p-2 mr-8 text-2xl hover:ring-1 active:ring-1 ring-gray-200 hover:bg-gray-100 active:gray-100"
             />
-          </td>
+          </th>
+          <th
+            colSpan={2}
+            className="flex items-center justify-center text-right"
+          >
+            <button onClick={handleDeleteCatagory}>
+              <AiOutlineCloseCircle className="text-gray-500 hidden group-hover:block" />
+            </button>
+          </th>
         </tr>
         <tr>
           <th className="text-left text-sm text-gray-600 pl-2">Item</th>
@@ -81,9 +94,7 @@ const CatagoryList = ({ name, data, id }) => {
             Weight
           </th>
           <th className="text-left">Qty</th>
-          {/* <th className="border border-black">
-                <button className="hidden">X</button>
-              </th> */}
+          <th></th>
         </tr>
       </thead>
 
@@ -94,6 +105,7 @@ const CatagoryList = ({ name, data, id }) => {
             key={item.id}
             catagoryID={id}
             id={item.id}
+            anotherCatagoryID={id}
           />
         ))}
       </tbody>

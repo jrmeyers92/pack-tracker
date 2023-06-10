@@ -52,7 +52,7 @@ const gearSlice = createSlice({
       // assumption
       // action.payload == catagory id
       const updated = state.gear.filter(
-        (catagory) => catagory.id !== action.payload
+        (catagory) => catagory.id !== action.payload.catagoryID
       );
       state.gear = updated;
       saveState(state.gear);
@@ -96,7 +96,7 @@ const gearSlice = createSlice({
       // }
 
       let objIndex = state.gear.findIndex(
-        (catagory) => catagory.id == action.payload.catagoryID
+        (obj) => obj.id == action.payload.catagoryID
       );
 
       state.gear[objIndex].items = state.gear[objIndex].items.filter(
