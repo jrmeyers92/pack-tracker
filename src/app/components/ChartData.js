@@ -30,6 +30,8 @@ const ChartData = () => {
       catagory.items.forEach((item) => {
         if (item.price != null || item.price != "") {
           cost += parseInt(item.price);
+        } else {
+          cost = cost;
         }
 
         if (isNaN(cost)) {

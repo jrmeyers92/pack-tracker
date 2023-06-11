@@ -18,7 +18,7 @@ const GearList = () => {
   };
 
   return (
-    <div>
+    <div className="pb-20">
       {gear &&
         gear.map((item) => (
           <CatagoryList

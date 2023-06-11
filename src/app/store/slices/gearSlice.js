@@ -6,7 +6,7 @@ let persistedData = loadState();
 if (persistedData == undefined) {
   persistedData = [
     {
-      name: "The Big Four",
+      name: "",
       id: nanoid(),
       items: [
         {
