@@ -1,4 +1,6 @@
 import Nav from "./components/Nav";
+import Script from "next/script";
+import Head from "next/head";
 import "./globals.css";
 
 export const metadata = {
@@ -10,6 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head></Head>
       <body>
         <Nav />
         {children}

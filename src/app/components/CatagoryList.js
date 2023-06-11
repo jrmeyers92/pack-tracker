@@ -34,7 +34,10 @@ const CatagoryList = ({ name, data, id }) => {
     data.forEach((item) => {
       if (item.price != null || item.price != "") {
         cost += parseInt(item.price);
-      } else {
+      }
+
+      if (isNaN(cost)) {
+        cost = 0;
       }
 
       if (item.qty) {
@@ -63,7 +66,7 @@ const CatagoryList = ({ name, data, id }) => {
   }, [data]);
 
   return (
-    <table className="border-b mb-4 text-gray-800 overflow-scroll">
+    <table className="border-b mb-4 text-gray-800 overflow-x-auto">
       <thead>
         <tr className="group flex">
           <th>

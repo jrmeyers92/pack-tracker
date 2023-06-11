@@ -12,12 +12,6 @@ const Nav = () => {
             height={60}
           ></Image>
         </li>
-        <li className="m-2 px-4 py-2 bg-gray-100 rounded-sm cursor-pointer">
-          Sign In
-        </li>
-        <li className="m-2 px-4 py-2 bg-gray-100 rounded-sm cursor-pointer">
-          Register
-        </li>
       </ul>
     </nav>
   );
