@@ -27,15 +27,12 @@ const ChartData = () => {
     gear.forEach((catagory) => {
       let cost = 0;
       let weight = 0;
+
       catagory.items.forEach((item) => {
-        if (item.price != null || item.price != "") {
+        if (!isNaN(parseInt(item.price))) {
           cost += parseInt(item.price);
         } else {
           cost = cost;
-        }
-
-        if (isNaN(cost)) {
-          cost = 0;
         }
 
         if (item.weight) {

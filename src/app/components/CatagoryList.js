@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { updateCatagory, addItem, deleteCatagory } from "../store";
 import { useEffect, useState } from "react";
 import { lbToOz, kgToOz, gramToOz } from "../utils/weightConversion";
+import { calculatePrice, calculateWeight } from "../utils/calculations";
 
 const CatagoryList = ({ name, data, id }) => {
   const dispatch = useDispatch();
@@ -27,42 +28,18 @@ const CatagoryList = ({ name, data, id }) => {
   };
 
   useEffect(() => {
-    let cost = 0;
     let qty = 0;
     let weight = 0;
 
     data.forEach((item) => {
-      if (item.price != null || item.price != "") {
-        cost += parseInt(item.price);
-      }
-
-      if (isNaN(cost)) {
-        cost = 0;
-      }
-
       if (item.qty) {
         qty += parseInt(item.qty);
       }
-
-      if (item.weight) {
-        if (item.unitOfMeasure == "g") {
-          weight += gramToOz(parseInt(item.weight));
-        } else if (item.unitOfMeasure == "kg") {
-          weight += kgToOz(parseInt(item.weight));
-        } else if (item.unitOfMeasure == "lb") {
-          weight += lbToOz(parseInt(item.weight));
-        } else {
-          weight += parseInt(item.weight);
-        }
-      }
     });
 
-    // round to two decimal places
-    weight = Math.round(weight * 100) / 100;
-
     setQty(qty);
-    setTotalCost(cost);
-    setWeight(weight);
+    setTotalCost(calculatePrice(data));
+    setWeight(calculateWeight(data));
   }, [data]);
 
   return (
