@@ -1,7 +1,7 @@
 import Nav from "./components/Nav";
-import Script from "next/script";
 import Head from "next/head";
 import "./globals.css";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 export const metadata = {
   title: "Pack Tracker",
@@ -12,22 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-0MJTKMKCMX"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-          
-            gtag('config', 'G-0MJTKMKCMX');
-        `}
-        </Script>
-      </Head>
+      <GoogleAnalytics />
       <body>
         <Nav />
         {children}
