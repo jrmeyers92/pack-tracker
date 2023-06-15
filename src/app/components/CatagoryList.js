@@ -43,70 +43,55 @@ const CatagoryList = ({ name, data, id }) => {
   }, [data]);
 
   return (
-    <table className="border-b mb-4 text-gray-800 overflow-x-auto">
-      <thead>
-        <tr className="group flex">
-          <th>
-            <input
-              type="text"
-              name="catagoryName"
-              id={id}
-              value={name}
-              onChange={handleNameChange}
-              placeholder="Catagory Name"
-              className="flex-1 outline-0 p-2 mr-8 text-2xl hover:ring-1 active:ring-1 ring-gray-200 hover:bg-gray-100 active:gray-100"
-            />
-          </th>
-          <th
-            colSpan={2}
-            className="flex items-center justify-center text-right"
-          >
-            <button onClick={handleDeleteCatagory}>
-              <AiOutlineCloseCircle className="text-gray-500 hidden group-hover:block" />
-            </button>
-          </th>
-        </tr>
-        <tr>
-          <th className="text-left text-sm text-gray-600 pl-2">Item</th>
-          <th className="text-left text-sm text-gray-600">Description</th>
-          <th className="text-left text-sm text-gray-600">Price</th>
-          <th className="text-left text-sm text-gray-600" colSpan={2}>
+    <section className="border-b mb-4 text-gray-800">
+      <div className="group flex justify-between">
+        <input
+          type="text"
+          name="catagoryName"
+          id={id}
+          value={name}
+          onChange={handleNameChange}
+          placeholder="Catagory Name"
+          className="flex-1 outline-0 p-2 mr-8 text-2xl hover:ring-1 active:ring-1 ring-gray-200 hover:bg-gray-100 active:gray-100"
+        />
+        <button onClick={handleDeleteCatagory}>
+          <AiOutlineCloseCircle className="text-gray-500 hidden group-hover:block" />
+        </button>
+      </div>
+      <div>
+        <div className="grid grid-cols-5">
+          <div className="text-left text-sm text-gray-600 pl-2">Item</div>
+          <div className="text-left text-sm text-gray-600">Description</div>
+          <div className="text-left text-sm text-gray-600">Price</div>
+          <div className="text-left text-sm text-gray-600" colSpan={2}>
             Weight
-          </th>
-          <th className="text-left">Qty</th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {data.map((item) => (
-          <CatagoryItem
-            data={item}
-            key={item.id}
-            catagoryID={id}
-            id={item.id}
-            anotherCatagoryID={id}
-          />
-        ))}
-      </tbody>
-      <tfoot>
-        <tr className="mt-2">
-          <td>
-            <button
-              className="flex items-center text-sm mt-2 pb-4 text-gray-600"
-              onClick={addNewItem}
-            >
-              <BsPlus /> Add new Item
-            </button>
-          </td>
-          <td></td>
-          <td className=" font-bold pl-2">${totalCost}</td>
-          <td className="font-bold">{weight} oz</td>
-          <td></td>
-          <td className="pl-4 font-bold">{qty}</td>
-        </tr>
-      </tfoot>
-    </table>
+          </div>
+          <div className="text-left">Qty</div>
+        </div>
+        <div>
+          {data.map((item) => (
+            <CatagoryItem
+              data={item}
+              key={item.id}
+              catagoryID={id}
+              id={item.id}
+              anodiverCatagoryID={id}
+            />
+          ))}
+        </div>
+        <div className="mt-2 grid grid-cols-5">
+          <button
+            className="flex items-center text-sm mt-2 pb-4 text-gray-600 col-span-2"
+            onClick={addNewItem}
+          >
+            <BsPlus /> Add new Item
+          </button>
+          <div className=" font-bold pl-2">${totalCost}</div>
+          <div className="font-bold">{weight} oz</div>
+          <div className="pl-4 font-bold">{qty}</div>
+        </div>
+      </div>
+    </section>
   );
 };
 

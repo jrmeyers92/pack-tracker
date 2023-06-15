@@ -72,7 +72,7 @@ const ChartData = () => {
   };
 
   return (
-    <section className="flex items-center">
+    <section className="flex items-center mb-12">
       <div className="mr-6">
         <div className="flex items-center">
           <label htmlFor="price" className="mr-2">
