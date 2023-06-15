@@ -44,7 +44,7 @@ const CatagoryList = ({ name, data, id }) => {
 
   return (
     <section className="border-b mb-4 text-gray-800">
-      <div className="group flex justify-between">
+      <div className="group flex justify-between mb-2">
         <input
           type="text"
           name="catagoryName"
@@ -75,7 +75,6 @@ const CatagoryList = ({ name, data, id }) => {
               key={item.id}
               catagoryID={id}
               id={item.id}
-              anodiverCatagoryID={id}
             />
           ))}
         </div>

@@ -1,8 +1,6 @@
 export const calculatePrice = (arr) => {
   let cost = 0;
 
-  console.log(arr);
-
   arr.forEach((item) => {
     if (!isNaN(parseInt(item.price))) {
       cost += parseInt(item.price);

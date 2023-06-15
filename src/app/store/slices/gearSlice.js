@@ -95,6 +95,8 @@ const gearSlice = createSlice({
       // itemID: id
       // }
 
+      console.log(action);
+
       let objIndex = state.gear.findIndex(
         (obj) => obj.id == action.payload.catagoryID
       );

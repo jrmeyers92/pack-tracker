@@ -4,11 +4,11 @@ import { updateItem, deleteItem } from "../store";
 import { useDispatch } from "react-redux";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-const CatagoryItem = ({ data, catagoryID, id, anotherCatagoryID }) => {
+const CatagoryItem = ({ data, catagoryID, id }) => {
   const dispatch = useDispatch();
 
   const handleDeleteItem = () => {
-    dispatch(deleteItem({ catagoryID: anotherCatagoryID, itemID: id }));
+    dispatch(deleteItem({ catagoryID: catagoryID, itemID: id }));
   };
 
   const handleInputChange = (event) => {
