@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav className="bg-primary">
+    <nav className="bg-primary px-2 sm:px-4">
       <ul className="flex items-center">
         <li className="flex-1 mx-2 uppercase text-xl font-bold">
           <Image
@@ -11,6 +12,9 @@ const Nav = () => {
             width={120}
             height={200}
           ></Image>
+        </li>
+        <li className="bg-white px-4 py-2 text-lg rounded-sm hover:bg-gray-100 cursor-pointer duration-150 shadow-sm hover:shadow-md">
+          <Link href="/allLists">Explore</Link>
         </li>
       </ul>
     </nav>
