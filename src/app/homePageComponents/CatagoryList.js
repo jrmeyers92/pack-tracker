@@ -6,7 +6,6 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { updateCatagory, addItem, deleteCatagory } from "../store";
 import { useEffect, useState } from "react";
-import { lbToOz, kgToOz, gramToOz } from "../utils/weightConversion";
 import { calculatePrice, calculateWeight } from "../utils/calculations";
 
 const CatagoryList = ({ name, data, id }) => {
@@ -30,7 +29,6 @@ const CatagoryList = ({ name, data, id }) => {
 
   useEffect(() => {
     let qty = 0;
-    let weight = 0;
 
     data.forEach((item) => {
       if (item.qty) {
@@ -86,8 +84,8 @@ const CatagoryList = ({ name, data, id }) => {
           <div>
             {data.map((item) => (
               <CatagoryItem
-                data={item}
                 key={item.id}
+                data={item}
                 catagoryID={id}
                 id={item.id}
                 itemsShowing={itemsShowing}

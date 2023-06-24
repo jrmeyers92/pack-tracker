@@ -28,39 +28,35 @@ const CatagoryItem = ({ data, catagoryID, id, itemsShowing }) => {
         <CatagoryItemInput
           id={id}
           labelText="Item Name"
-          handleInputChange={handleInputChange}
-          name={data.name}
+          name="name"
+          catagoryID={catagoryID}
+          value={data.name}
         />
 
         <CatagoryItemInput
           id={id}
           labelText="Item description"
-          handleInputChange={handleInputChange}
-          name={data.description}
+          name="description"
+          catagoryID={catagoryID}
+          value={data.description}
         />
 
         <CatagoryItemInput
           id={id}
           labelText="Price"
-          handleInputChange={handleInputChange}
-          name={data.price ? data.price : ""}
+          name="price"
+          catagoryID={catagoryID}
+          value={data.price ? data.price : ""}
         />
 
         <div className="md:flex items-center">
-          <div className="flex">
-            <label htmlFor={`weight-${id}`} className="md:hidden mr-2 w-1/2">
-              Weight:
-            </label>
-            <input
-              className="border md:border-0 md:outline-0 bg-inherit md:hover:ring-2 hover:ring-inset md:hover:ring-pink w-1/2 md:w-full py-1 px-2"
-              type="number"
-              id={`weight-${id}`}
-              name="weight"
-              placeholder="weight"
-              value={data.weight}
-              onChange={handleInputChange}
-            />
-          </div>
+          <CatagoryItem
+            id={id}
+            labelText="Weight"
+            name="weight"
+            catagoryID={catagoryID}
+            value={data.weight}
+          />
           <div className="flex">
             <label htmlFor={`uom-${id}`} className="md:hidden mr-2 w-1/2">
               Unit Of Measure:
@@ -102,8 +98,9 @@ const CatagoryItem = ({ data, catagoryID, id, itemsShowing }) => {
           <CatagoryItemInput
             id={id}
             labelText="Quantity"
-            handleInputChange={handleInputChange}
-            name={data.qty}
+            name="qty"
+            value={data.qty}
+            catagoryID={catagoryID}
           />
 
           <button
