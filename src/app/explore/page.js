@@ -1,5 +1,5 @@
 import React from "react";
-import GearList from "./GearList";
+import ExploreGearList from "./ExploreGearList";
 
 async function getData() {
   const res = await fetch("http://localhost:3008/api/v1/gearList", {
@@ -23,7 +23,7 @@ const allLists = async () => {
   return (
     <div className="grid lg:grid-cols-2">
       {data.data.data.map((item) => {
-        return <GearList item={item} />;
+        return <ExploreGearList item={item} />;
       })}
     </div>
   );

@@ -3,6 +3,7 @@
 import { updateItem, deleteItem } from "../store";
 import { useDispatch } from "react-redux";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import CatagoryItemInput from "./CatagoryItemInput";
 
 const CatagoryItem = ({ data, catagoryID, id, itemsShowing }) => {
   const dispatch = useDispatch();
@@ -24,48 +25,27 @@ const CatagoryItem = ({ data, catagoryID, id, itemsShowing }) => {
   if (itemsShowing) {
     return (
       <div className="md:odd:bg-slate-100 md:odd:hover:bg-slate-200 md:even:hover:bg-zinc-200 duration-200 text-gray-800 group grid grid-cols-1 md:grid-cols-5">
-        <div className="flex">
-          <label htmlFor={`name-${id}`} className="md:hidden mr-2 w-1/2">
-            Item Name:
-          </label>
-          <input
-            className="border md:border-0 md:outline-0 bg-inherit md:hover:ring-2 hover:ring-inset md:hover:ring-pink w-1/2 md:w-full md:w-full py-1 px-2 pl-2"
-            type="text"
-            name="name"
-            id={`name-${id}`}
-            placeholder="name"
-            onChange={handleInputChange}
-            value={data.name}
-          />
-        </div>
-        <div className="flex">
-          <label htmlFor={`description-${id}`} className="md:hidden mr-2 w-1/2">
-            Item description:
-          </label>
-          <input
-            className="border md:border-0 md:outline-0 bg-inherit md:hover:ring-2 hover:ring-inset md:hover:ring-pink w-1/2 md:w-full py-1 px-2"
-            type="text"
-            id={`description-${id}`}
-            placeholder="description"
-            name="description"
-            onChange={handleInputChange}
-            value={data.description}
-          />
-        </div>
-        <div className="flex">
-          <label htmlFor={`price-${id}`} className="md:hidden mr-2 w-1/2">
-            Price:
-          </label>
-          <input
-            className="border md:border-0 md:outline-0 bg-inherit md:hover:ring-2 hover:ring-inset md:hover:ring-pink w-1/2 md:w-full py-1 px-2"
-            type="number"
-            id={`price-${id}`}
-            placeholder="price"
-            name="price"
-            onChange={handleInputChange}
-            value={`${data.price ? data.price : ""}`}
-          />
-        </div>
+        <CatagoryItemInput
+          id={id}
+          labelText="Item Name"
+          handleInputChange={handleInputChange}
+          name={data.name}
+        />
+
+        <CatagoryItemInput
+          id={id}
+          labelText="Item description"
+          handleInputChange={handleInputChange}
+          name={data.description}
+        />
+
+        <CatagoryItemInput
+          id={id}
+          labelText="Price"
+          handleInputChange={handleInputChange}
+          name={data.price ? data.price : ""}
+        />
+
         <div className="md:flex items-center">
           <div className="flex">
             <label htmlFor={`weight-${id}`} className="md:hidden mr-2 w-1/2">
@@ -119,20 +99,13 @@ const CatagoryItem = ({ data, catagoryID, id, itemsShowing }) => {
           </div>
         </div>
         <div className="md:flex md:justify-between md:items-center">
-          <div className="flex mb-4 md:my-0">
-            <label htmlFor={`quantity-${id}`} className="md:hidden mr-2 w-1/2">
-              Quantity:
-            </label>
-            <input
-              className="border md:border-0 md:outline-0 bg-inherit md:hover:ring-2 hover:ring-inset md:hover:ring-pink w-1/2 md:w-full py-1 px-2"
-              type="number"
-              name="qty"
-              id={`quantity-${id}`}
-              placeholder="Quantity"
-              value={data.qty}
-              onChange={handleInputChange}
-            />
-          </div>
+          <CatagoryItemInput
+            id={id}
+            labelText="Quantity"
+            handleInputChange={handleInputChange}
+            name={data.qty}
+          />
+
           <button
             onClick={handleDeleteItem}
             className="flex items-center justify-center hidden md:flex"

@@ -1,4 +1,4 @@
-const CatagoryList = ({ data }) => {
+const ExploreCatagoryList = ({ data }) => {
   return (
     <div>
       <div>
@@ -35,4 +35,4 @@ const CatagoryList = ({ data }) => {
   );
 };
 
-export default CatagoryList;
+export default ExploreCatagoryList;

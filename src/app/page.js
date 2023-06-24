@@ -1,7 +1,7 @@
 "use client";
 
-import GearList from "./components/GearList";
-import ChartData from "./components/ChartData";
+import GearList from "./homePageComponents/GearList";
+import ChartData from "./homePageComponents/ChartData";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import { useState, useEffect } from "react";

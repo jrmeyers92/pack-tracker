@@ -14,7 +14,7 @@ const Nav = () => {
           ></Image>
         </li>
         <li className="bg-white px-4 py-2 text-lg rounded-sm hover:bg-gray-100 cursor-pointer duration-150 shadow-sm hover:shadow-md">
-          <Link href="/allLists">Explore</Link>
+          <Link href="/explore">Explore</Link>
         </li>
       </ul>
     </nav>
