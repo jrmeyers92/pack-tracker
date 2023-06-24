@@ -2,7 +2,7 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
 
-function PieChart({ chartData }) {
+function PieChart({ chartData, chartType }) {
   return (
     <div className="chart-container">
       <h2 style={{ textAlign: "center" }}>Pack Tracker</h2>
@@ -12,7 +12,7 @@ function PieChart({ chartData }) {
           plugins: {
             title: {
               display: true,
-              text: "% weight or price for each catagory table",
+              text: `% ${chartType} for each catagory table`,
             },
           },
         }}

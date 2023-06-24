@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import ExploreCatagoryList from "./ExploreCatgoryList";
+import { ozToLbAndOz } from "../utils/weightConversion";
 
 const ExploreGearList = ({ item }) => {
   const [itemsShowing, setItemsShowing] = useState(false);
@@ -18,8 +19,7 @@ const ExploreGearList = ({ item }) => {
         <h4 className="col-span-2">
           Total Gear Weight:&nbsp;
           <span className="font-bold">
-            {item.totalGearListWeight}
-            oz
+            {ozToLbAndOz(item.totalGearListWeight)}
           </span>
         </h4>
       </div>

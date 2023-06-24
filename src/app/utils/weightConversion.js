@@ -9,3 +9,9 @@ export const kgToOz = (kg) => {
 export const gramToOz = (gram) => {
   return gram / 28.34952;
 };
+
+export const ozToLbAndOz = (oz) => {
+  let newOZ = oz % 16;
+  let lbs = (oz - newOZ) / 16;
+  return `${lbs} lbs ${newOZ} oz`;
+};

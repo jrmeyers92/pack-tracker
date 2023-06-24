@@ -101,7 +101,7 @@ const ChartData = () => {
           />
         </div>
       </div>
-      <PieChart chartData={chartData} />
+      <PieChart chartData={chartData} chartType={chartType} />
     </section>
   );
 };
