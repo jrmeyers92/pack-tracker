@@ -64,6 +64,8 @@ const ChartData = () => {
           "#50AF95",
           "#f3ba2f",
           "#2a71d0",
+          "#fc033d",
+          "#f8fc03",
         ],
         borderColor: "black",
         borderWidth: 2,
@@ -72,9 +74,10 @@ const ChartData = () => {
   };
 
   return (
-    <section className="flex items-center mb-12">
-      <div className="mr-6">
-        <div className="flex items-center">
+    <section className="flex flex-col items-center mb-12">
+      <PieChart chartData={chartData} chartType={chartType} />
+      <div className="mr-6 flex flex-col mt-6">
+        <div className="flex items-center justify-between">
           <label htmlFor="price" className="mr-2">
             Price
           </label>
@@ -87,7 +90,7 @@ const ChartData = () => {
             onChange={onChartTypeChange}
           />
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           <label htmlFor="weight" className="mr-2">
             Weight
           </label>
@@ -101,7 +104,6 @@ const ChartData = () => {
           />
         </div>
       </div>
-      <PieChart chartData={chartData} chartType={chartType} />
     </section>
   );
 };

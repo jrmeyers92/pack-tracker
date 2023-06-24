@@ -35,11 +35,11 @@ const GearList = () => {
       >
         <BsPlus /> Add new Catagory
       </button>
-      <div className="w-full flex items-center">
+      {/* <div className="w-full flex items-center">
         <button className="bg-primary px-4 py-2 text-white mx-auto my-4 text-xl rounded-sm shadow-sm hover:shadow-md duration-200 hover:bg-primary-600">
           Save
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
