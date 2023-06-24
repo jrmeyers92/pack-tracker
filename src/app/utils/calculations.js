@@ -3,7 +3,7 @@ export const calculatePrice = (arr) => {
 
   arr.forEach((item) => {
     if (!isNaN(parseInt(item.price))) {
-      cost += parseInt(item.price);
+      cost += parseInt(item.price * item.qty);
     } else {
       cost = cost;
     }
@@ -17,13 +17,13 @@ export const calculateWeight = (arr) => {
   arr.forEach((item) => {
     if (item.weight) {
       if (item.unitOfMeasure == "g") {
-        weight += gramToOz(parseInt(item.weight));
+        weight += gramToOz(parseInt(item.weight * item.qty));
       } else if (item.unitOfMeasure == "kg") {
-        weight += kgToOz(parseInt(item.weight));
+        weight += kgToOz(parseInt(item.weigh * item.qty));
       } else if (item.unitOfMeasure == "lb") {
-        weight += lbToOz(parseInt(item.weight));
+        weight += lbToOz(parseInt(item.weight * item.qty));
       } else {
-        weight += parseInt(item.weight);
+        weight += parseInt(item.weight * item.qty);
       }
     }
   });

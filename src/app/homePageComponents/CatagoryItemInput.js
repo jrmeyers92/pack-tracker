@@ -1,7 +1,14 @@
 import { useDispatch } from "react-redux";
 import { updateItem, deleteItem } from "../store";
 
-const CatagoryItemInput = ({ id, labelText, name, catagoryID, value }) => {
+const CatagoryItemInput = ({
+  id,
+  labelText,
+  name,
+  catagoryID,
+  value,
+  type,
+}) => {
   const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
@@ -20,7 +27,7 @@ const CatagoryItemInput = ({ id, labelText, name, catagoryID, value }) => {
       </label>
       <input
         className="border md:border-0 md:outline-0 bg-inherit md:hover:ring-2 hover:ring-inset md:hover:ring-pink w-1/2 md:w-full md:w-full py-1 px-2 pl-2"
-        type="text"
+        type={type}
         name={name}
         id={`name-${id}`}
         placeholder="name"
