@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import PieChart from "./PieChart";
-import { gramToOz, lbToOz, kgToOz } from "../utils/weightConversion";
+import { gramToOz, lbToOz, kgToOz } from "../utils/calculations";
 import { useEffect, useState } from "react";
 
 Chart.register(CategoryScale);

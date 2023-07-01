@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import ExploreCatagoryList from "./ExploreCatgoryList";
-import { ozToLbAndOz } from "../utils/weightConversion";
+import { ozToLbAndOz } from "../utils/calculations";
 
 const ExploreGearList = ({ item }) => {
   const [itemsShowing, setItemsShowing] = useState(false);

@@ -1,7 +1,7 @@
-import Nav from "./components/Nav";
+import Nav from "./shared/Nav";
 import Head from "next/head";
 import "./globals.css";
-import GoogleAnalytics from "./components/GoogleAnalytics";
+import GoogleAnalytics from "./shared/GoogleAnalytics";
 
 export const metadata = {
   title: "Pack Tracker",

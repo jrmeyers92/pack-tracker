@@ -1,4 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
+// import { setupListeners } from "@reduxjs/toolkit/query/react";
+// import { gearListsApi } from "./apis/gearApi";
 import {
   gearReducer,
   addCatagory,

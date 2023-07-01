@@ -40,6 +40,10 @@ const GearList = () => {
           Save
         </button>
       </div> */}
+      <div className="flex my-4">
+        <div className="mx-2">Total Weight:</div>
+        <div className="mx-2">Total Price: </div>
+      </div>
     </div>
   );
 };
