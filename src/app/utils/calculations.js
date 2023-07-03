@@ -13,7 +13,7 @@ export const gramToOz = (gram) => {
 export const ozToLbAndOz = (oz) => {
   let newOZ = oz % 16;
   let lbs = (oz - newOZ) / 16;
-  return `${lbs} lbs ${newOZ} oz`;
+  return `${lbs} lbs ${newOZ.toFixed(2)} oz`;
 };
 
 export const calculatePrice = (arr) => {
@@ -30,7 +30,7 @@ export const calculatePrice = (arr) => {
   return cost;
 };
 
-export const calculateWeight = (arr) => {
+export const calculateCatagoryWeight = (arr) => {
   let weight = 0;
   arr.forEach((item) => {
     if (item.weight) {
@@ -44,6 +44,29 @@ export const calculateWeight = (arr) => {
         weight += parseInt(item.weight * item.qty);
       }
     }
+  });
+
+  weight = Math.round(weight * 100) / 100;
+
+  return weight;
+};
+
+export const calculateTotalWeight = (arr) => {
+  let weight = 0;
+  arr.forEach((catagory) => {
+    catagory.items.forEach((item) => {
+      if (item.weight) {
+        if (item.unitOfMeasure == "g") {
+          weight += gramToOz(parseInt(item.weight * item.qty));
+        } else if (item.unitOfMeasure == "kg") {
+          weight += kgToOz(parseInt(item.weight * item.qty));
+        } else if (item.unitOfMeasure == "lb") {
+          weight += lbToOz(parseInt(item.weight * item.qty));
+        } else {
+          weight += parseInt(item.weight * item.qty);
+        }
+      }
+    });
   });
 
   weight = Math.round(weight * 100) / 100;

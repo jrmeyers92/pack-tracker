@@ -6,7 +6,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { updateCatagory, addItem, deleteCatagory } from "../store";
 import { useEffect, useState } from "react";
-import { calculatePrice, calculateWeight } from "../utils/calculations";
+import { calculatePrice, calculateCatagoryWeight } from "../utils/calculations";
 
 const CatagoryList = ({ name, data, id }) => {
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const CatagoryList = ({ name, data, id }) => {
 
     setQty(qty);
     setTotalCost(calculatePrice(data));
-    setWeight(calculateWeight(data));
+    setWeight(calculateCatagoryWeight(data));
   }, [data]);
 
   return (

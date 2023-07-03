@@ -6,7 +6,11 @@ import { BsPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addCatagory } from "../store";
 import { useEffect, useState } from "react";
-import { ozToLbAndOz } from "../utils/calculations";
+import {
+  ozToLbAndOz,
+  calculateTotalWeight,
+  lbToOz,
+} from "../utils/calculations";
 
 const GearList = () => {
   const dispatch = useDispatch();
@@ -16,6 +20,8 @@ const GearList = () => {
   const gear = useSelector((state) => {
     return state.gear.gear;
   });
+
+  console.log(gear);
 
   useEffect(() => {
     let weight = 0;
@@ -65,7 +71,9 @@ const GearList = () => {
         </button>
       </div> */}
       <div className="flex my-4">
-        <div className="mx-2">Total Weight: {ozToLbAndOz(totalWeight)}</div>
+        <div className="mx-2">
+          Total Weight: {ozToLbAndOz(calculateTotalWeight(gear))}
+        </div>
         <div className="mx-2">Total Price: ${totalPrice} </div>
       </div>
     </div>
