@@ -37,7 +37,7 @@ export const calculateWeight = (arr) => {
       if (item.unitOfMeasure == "g") {
         weight += gramToOz(parseInt(item.weight * item.qty));
       } else if (item.unitOfMeasure == "kg") {
-        weight += kgToOz(parseInt(item.weigh * item.qty));
+        weight += kgToOz(parseInt(item.weight * item.qty));
       } else if (item.unitOfMeasure == "lb") {
         weight += lbToOz(parseInt(item.weight * item.qty));
       } else {

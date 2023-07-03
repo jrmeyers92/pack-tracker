@@ -15,7 +15,7 @@ if (persistedData == undefined) {
           description: "",
           price: 0,
           unitOfMeasure: "oz",
-          weight: "1",
+          weight: "",
           qty: 1,
         },
       ],
