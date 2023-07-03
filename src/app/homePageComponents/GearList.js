@@ -5,13 +5,37 @@ import CatagoryList from "./CatagoryList";
 import { BsPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addCatagory } from "../store";
+import { useEffect, useState } from "react";
+import { ozToLbAndOz } from "../utils/calculations";
 
 const GearList = () => {
   const dispatch = useDispatch();
+  const [totalWeight, setTotalWeight] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const gear = useSelector((state) => {
     return state.gear.gear;
   });
+
+  useEffect(() => {
+    let weight = 0;
+    let price = 0;
+
+    gear.forEach((list) => {
+      list.items.forEach((item) => {
+        if (item.price) {
+          price += parseInt(item.price);
+        }
+
+        if (item.weight) {
+          weight += parseInt(item.weight);
+        }
+      });
+    });
+
+    setTotalWeight(weight);
+    setTotalPrice(price);
+  }, [gear]);
 
   const addNewCatagory = () => {
     dispatch(addCatagory({}));
@@ -41,8 +65,8 @@ const GearList = () => {
         </button>
       </div> */}
       <div className="flex my-4">
-        <div className="mx-2">Total Weight:</div>
-        <div className="mx-2">Total Price: </div>
+        <div className="mx-2">Total Weight: {ozToLbAndOz(totalWeight)}</div>
+        <div className="mx-2">Total Price: ${totalPrice} </div>
       </div>
     </div>
   );

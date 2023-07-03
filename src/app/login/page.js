@@ -15,9 +15,9 @@ const login = () => {
   };
 
   return (
-    <div>
+    <div className="container mx-auto flex items-center justify-center flex-col">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex flex-col">
         <label>
           <span>email:</span>
           <input
@@ -36,7 +36,7 @@ const login = () => {
             value={password}
           />
         </label>
-        <button>login</button>
+        <button className="bg-primary px-4 py-2">login</button>
         {error && <p>{error}</p>}
       </form>
     </div>
