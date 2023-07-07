@@ -1,4 +1,3 @@
-import React from "react";
 import ExploreGearList from "./ExploreGearList";
 
 async function getData() {
