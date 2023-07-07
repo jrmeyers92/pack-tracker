@@ -13,7 +13,7 @@ export const gramToOz = (gram) => {
 export const ozToLbAndOz = (oz) => {
   let newOZ = oz % 16;
   let lbs = (oz - newOZ) / 16;
-  return `${lbs} lbs ${newOZ.toFixed(2)} oz`;
+  return `${lbs} lbs ${newOZ.toFixed(1)} oz`;
 };
 
 export const calculatePrice = (arr) => {

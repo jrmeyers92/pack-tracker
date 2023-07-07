@@ -24,7 +24,7 @@ const CatagoryItem = ({ data, catagoryID, id, itemsShowing }) => {
 
   if (itemsShowing) {
     return (
-      <div className="md:odd:bg-slate-100 md:odd:hover:bg-slate-200 md:even:hover:bg-zinc-200 duration-200 text-gray-800 group grid grid-cols-1 md:grid-cols-5">
+      <div className="md:odd:bg-slate-100 md:odd:hover:bg-slate-200 md:even:hover:bg-zinc-200 duration-200 text-gray-800 group grid grid-cols-1 md:grid-cols-5 py-2 md:py-0">
         <CatagoryItemInput
           id={id}
           labelText="Item Name"

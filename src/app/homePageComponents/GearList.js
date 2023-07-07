@@ -72,9 +72,14 @@ const GearList = () => {
       </div> */}
       <div className="flex my-4">
         <div className="mx-2">
-          Total Weight: {ozToLbAndOz(calculateTotalWeight(gear))}
+          Total Weight: &nbsp;
+          <span className="font-bold">
+            {ozToLbAndOz(calculateTotalWeight(gear))}
+          </span>
         </div>
-        <div className="mx-2">Total Price: ${totalPrice} </div>
+        <div className="mx-2">
+          Total Price: &nbsp;<span className="font-bold">${totalPrice}</span>
+        </div>
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ const CatagoryItemInput = ({
         type={type}
         name={name}
         id={`name-${id}`}
-        placeholder="name"
+        placeholder={name}
         onChange={handleInputChange}
         value={value}
       />
