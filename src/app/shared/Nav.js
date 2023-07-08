@@ -44,11 +44,15 @@ const Nav = () => {
         )}
 
         {user && (
-          <li
-            onClick={logout}
-            className="bg-white mx-2 px-4 py-2 text-lg rounded-sm hover:bg-gray-100 cursor-pointer duration-150 shadow-sm hover:shadow-md"
-          >
-            Logout
+          <li className="flex flex-col">
+            <span className="text-white">Hi, {user.email}</span>
+
+            <button
+              onClick={logout}
+              className="bg-white mx-2 px-4 py-2 text-lg rounded-sm hover:bg-gray-100 cursor-pointer duration-150 shadow-sm hover:shadow-md mt-2"
+            >
+              Logout
+            </button>
           </li>
         )}
       </ul>
