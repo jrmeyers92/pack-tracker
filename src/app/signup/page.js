@@ -5,7 +5,6 @@ import { useSignup } from "../hooks/useSignup";
 import { auth } from "../firebase/firebaseConfig";
 import { useRouter } from "next/navigation.js";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const signup = () => {
   const [email, setEmail] = useState("");
@@ -19,30 +18,6 @@ const signup = () => {
   if (user) {
     router.push("/");
   }
-
-  const handleGoogleSignIn = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
-  };
 
   useEffect(() => {
     let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
@@ -65,7 +40,7 @@ const signup = () => {
 
   return (
     <div className="container mx-auto flex items-center justify-center flex-col">
-      <h2>Signup</h2>
+      <h2 className="my-4 text-3xl">Signup</h2>
       <form onSubmit={handleSubmit} className="flex flex-col">
         <label className="flex items-center justify-between my-2">
           <span className="mr-2">email:</span>
@@ -103,9 +78,6 @@ const signup = () => {
         </button>
         {error && <p>{error}</p>}
       </form>
-      <button className="btn my-4" onClick={handleGoogleSignIn}>
-        Sign Up with Google
-      </button>
     </div>
   );
 };

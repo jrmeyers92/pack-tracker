@@ -26,7 +26,7 @@ const login = () => {
 
   return (
     <div className="container mx-auto flex items-center justify-center flex-col">
-      <h2>Login</h2>
+      <h2 className="text-3xl my-4 uppercase">Login</h2>
       <form onSubmit={handleSubmit} className="flex flex-col">
         <label className="flex items-center justify-between my-2">
           <span className="mr-2">email:</span>
@@ -48,7 +48,9 @@ const login = () => {
             className="border border-gray-300"
           />
         </label>
-        <button className="bg-primary px-4 py-2 mt-4 text-white">login</button>
+        <button type="submit" className="bg-primary px-4 py-2 mt-4 text-white">
+          login
+        </button>
         {error && <p>{error}</p>}
       </form>
     </div>

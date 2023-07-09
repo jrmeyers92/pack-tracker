@@ -74,11 +74,14 @@ const CatagoryList = ({ name, data, id }) => {
 
       {itemsShowing && (
         <div>
-          <div className="hidden md:grid grid-cols-5">
-            <div className="text-left text-sm text-gray-600 pl-2">Item</div>
-            <div className="text-left text-sm text-gray-600">Description</div>
-            <div className="text-left text-sm text-gray-600">Price</div>
-            <div className="text-left text-sm text-gray-600">Weight</div>
+          <div className="hidden md:grid grid-cols-6">
+            <div className="text-left text-sm text-gray-600 pl-2">Brand</div>
+            <div className="text-left text-sm text-gray-600 pl-2">Model</div>
+            <div className="text-left text-sm text-gray-600 pl-2">
+              Description
+            </div>
+            <div className="text-left text-sm text-gray-600 pl-2">Price</div>
+            <div className="text-left text-sm text-gray-600 pl-2">Weight</div>
             <div className="text-left">Qty</div>
           </div>
           <div>
@@ -92,9 +95,9 @@ const CatagoryList = ({ name, data, id }) => {
               />
             ))}
           </div>
-          <div className="mt-2 hidden md:grid grid-cols-5 ">
+          <div className="mt-2 hidden md:grid grid-cols-6 ">
             <button
-              className="flex items-center text-sm mt-2 pb-4 text-gray-600 col-span-2"
+              className="flex items-center text-sm mt-2 pb-4 text-gray-600 col-span-3"
               onClick={addNewItem}
             >
               <BsPlus /> Add new Item

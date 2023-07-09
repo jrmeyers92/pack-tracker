@@ -24,19 +24,28 @@ const CatagoryItem = ({ data, catagoryID, id, itemsShowing }) => {
 
   if (itemsShowing) {
     return (
-      <div className="md:odd:bg-slate-100 md:odd:hover:bg-slate-200 md:even:hover:bg-zinc-200 duration-200 text-gray-800 group grid grid-cols-1 md:grid-cols-5 py-2 md:py-0">
+      <div className="md:odd:bg-slate-100 md:odd:hover:bg-slate-200 md:even:hover:bg-zinc-200 duration-200 text-gray-800 group grid grid-cols-1 md:grid-cols-6 py-2 md:py-0">
         <CatagoryItemInput
           id={id}
-          labelText="Item Name"
-          name="name"
+          labelText="Brand"
+          name="brand"
           catagoryID={catagoryID}
-          value={data.name}
+          value={data.brand}
           type="text"
         />
 
         <CatagoryItemInput
           id={id}
-          labelText="Item description"
+          labelText="Model"
+          name="model"
+          catagoryID={catagoryID}
+          value={data.model}
+          type="text"
+        />
+
+        <CatagoryItemInput
+          id={id}
+          labelText="Description"
           name="description"
           catagoryID={catagoryID}
           value={data.description}

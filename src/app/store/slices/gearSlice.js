@@ -11,8 +11,9 @@ if (persistedData == undefined) {
       items: [
         {
           id: nanoid(),
-          name: "",
-          description: "",
+          brand: "",
+          model: "",
+          descripton: "",
           price: 0,
           unitOfMeasure: "oz",
           weight: "",
@@ -36,7 +37,8 @@ const gearSlice = createSlice({
         items: [
           {
             id: nanoid(),
-            name: "",
+            brand: "",
+            model: "",
             description: "",
             price: "",
             unitOfMeasure: "oz",
@@ -79,7 +81,8 @@ const gearSlice = createSlice({
       );
       state.gear[objIndex].items.push({
         id: nanoid(),
-        name: "",
+        brand: "",
+        model: "",
         description: "",
         price: null,
         unitOfMeasure: "oz",

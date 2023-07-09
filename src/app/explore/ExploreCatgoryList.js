@@ -9,9 +9,9 @@ const ExploreCatagoryList = ({ data }) => {
         {data.items.map((listItem) => (
           <div key={listItem.id} className="flex flex-col">
             <div className="grid grid-cols-5 gap-10">
-              <span className="font-extralight mr-2">{listItem.name}</span>
+              <span className="font-extralight mr-2">{listItem.brand}</span>
               <span className="font-extralight mr-2 col-span-2">
-                {listItem.description}
+                {listItem.model}
               </span>
               <span className="mr-2 font-extralight">${listItem.price}</span>
               <span className="font-extralight">
